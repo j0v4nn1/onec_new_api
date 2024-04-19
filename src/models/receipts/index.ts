@@ -9,7 +9,7 @@ type Receipt = {
   contract: string;
   document: string;
   invoice: string;
-  uuid: string;
+  vat: number;
   total: number;
   store: string;
   time: string;
@@ -48,8 +48,8 @@ const ReceiptSchema = new Schema<Receipt>({
     type: String,
     required: true,
   },
-  uuid: {
-    type: String,
+  vat: {
+    type: Number,
     required: true,
   },
   total: {

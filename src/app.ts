@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 import receiptsRouter from './routes/receipts';
 import providersRouter from './routes/provider';
+import productsRouter from './routes/products';
+import brandRouter from './routes/brands';
 
 const { PORT, PORT_DB, DB_NAME } = process.env;
 
@@ -13,6 +15,8 @@ app.use(express.json());
 
 app.use('/api', receiptsRouter);
 app.use('/api', providersRouter);
+app.use('/api', productsRouter);
+app.use('/api', brandRouter);
 
 const start = async () => {
   try {

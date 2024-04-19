@@ -17,11 +17,10 @@ export const createProvider = (req: Request, res: Response) => {
 };
 
 export const getProviders = (req: Request, res: Response) => {
-  Provider.find().then((data) => {
-    if (data) {
+  Provider.find().then((providers) => {
+    if (providers) {
       res.json({
-        status: 'success',
-        data,
+        providers,
       });
     } else {
       console.log('error');
@@ -29,4 +28,10 @@ export const getProviders = (req: Request, res: Response) => {
   });
 };
 
-export const addContractToProvider = (req: Request, res: Response) => {};
+export const updateProviderContract = (req: Request, res: Response) => {
+  const providerId = req.params.id;
+  const contract = req.body;
+  Provider.findByIdAndUpdate(providerId, { $addToSet: { documents: contract } }, { new: true }).then((data) => {
+    res.json(data);
+  });
+};
