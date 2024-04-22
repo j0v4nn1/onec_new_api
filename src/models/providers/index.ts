@@ -5,7 +5,7 @@ type Provider = {
   taxid: number;
   crr: number;
   registered: string;
-  documents: {
+  contracts: {
     _id: string;
     name: string;
   };
@@ -28,7 +28,7 @@ const ProviderSchema = new Schema<Provider>({
     type: String,
     required: true,
   },
-  documents: {
+  contracts: {
     type: [Object],
   },
 });
