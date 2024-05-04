@@ -11,9 +11,12 @@ class TokenService {
     if (!JWT_SECRET) {
       throw new ServerSideError('Process.env error');
     }
-    const refreshToken = jwt.sign(payload, JWT_SECRET);
-    const accessToken = jwt.sign(payload, JWT_SECRET);
-    return { refreshToken, accessToken };
+    const refreshToken = jwt.sign(payload, JWT_SECRET, { expiresIn: '20s' });
+    const accessToken = jwt.sign(payload, JWT_SECRET, { expiresIn: '30d' });
+    return {
+      accessToken: `Bearer ${accessToken}`,
+      refreshToken: `Bearer ${refreshToken}`,
+    };
   }
 
   async saveToken(userId: Types.ObjectId, refreshToken: string) {

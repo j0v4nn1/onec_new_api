@@ -1,29 +1,24 @@
 import { Response, Request, NextFunction } from 'express';
 import { verify, JwtPayload } from 'jsonwebtoken';
 import 'dotenv/config';
-import UnauthorizedError from 'errors/unauthorized-error';
+import { responseData } from 'utils/common';
 
 const { JWT_SECRET } = process.env;
 
 export default (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    return res.json({
-      status: 'failure',
-    });
+    return next();
   }
   const token = authorization.replace('Bearer ', '');
   let payload: string | JwtPayload;
   try {
     if (!JWT_SECRET) {
-      return res.json({
-        status: 'Token failure',
-      });
+      return responseData(res, 'failure', { message: 'Проблема с секретным ключом' });
     }
     payload = verify(token, JWT_SECRET);
   } catch (error) {
-    const err = new UnauthorizedError('Authorized error');
-    return next(err);
+    return next(error);
   }
   req.user = payload;
   return next();
