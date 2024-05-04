@@ -1,4 +1,4 @@
-import { createBrand, getAllBrands } from '../../controller/brands';
+import { createBrand, getAllBrands } from '../controllers/brands';
 import { Router } from 'express';
 
 const brandRouter = Router();

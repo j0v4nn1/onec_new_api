@@ -1,6 +1,6 @@
-import { INCORRECT_DATA_CODE } from '../constants';
+import { INCORRECT_DATA_CODE } from '../constants/errors';
 
-class IncorrectData extends Error {
+export default class IncorrectData extends Error {
   statusCode: number;
 
   constructor(message: string) {
@@ -8,5 +8,3 @@ class IncorrectData extends Error {
     this.statusCode = INCORRECT_DATA_CODE;
   }
 }
-
-export default IncorrectData;

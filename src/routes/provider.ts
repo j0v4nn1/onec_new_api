@@ -1,4 +1,4 @@
-import { createProvider, getProviders, updateProviderContract } from '../../controller/providers';
+import { createProvider, getProviders, updateProviderContract } from '../controllers/providers';
 import { Router } from 'express';
 
 const providersRouter = Router();

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Brand from '../../models/brands';
+import Brand from '../models/brands';
 
 export const createBrand = (req: Request, res: Response) => {
   Brand.create(req.body)

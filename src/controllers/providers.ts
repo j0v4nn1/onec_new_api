@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import Provider from '../../models/providers';
+import Provider from '../models/providers';
 
 export const createProvider = (req: Request, res: Response) => {
   Provider.create(req.body).then((provider) => {

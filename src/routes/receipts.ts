@@ -1,4 +1,4 @@
-import { createReceipt, getReceipts } from '../../controller/receipts';
+import { createReceipt, getReceipts } from '../controllers/receipts';
 import { Router } from 'express';
 
 const receiptsRouter = Router();

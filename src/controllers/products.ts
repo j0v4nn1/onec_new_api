@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import Product from '../../models/products';
+import Product from '../models/products';
 
 export const createProduct = (req: Request, res: Response) => {
   Product.create(req.body).then((product) => {

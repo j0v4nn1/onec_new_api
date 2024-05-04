@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import Receipt from '../../models/receipts';
+import Receipt from '../models/receipts';
 
 export const createReceipt = (req: Request, res: Response) => {
   Receipt.create(req.body).then((receipt) => {

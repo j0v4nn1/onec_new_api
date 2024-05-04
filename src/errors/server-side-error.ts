@@ -1,6 +1,6 @@
-import { SERVER_SIDE_ERROR_CODE } from '../constants';
+import { SERVER_SIDE_ERROR_CODE } from '../constants/errors';
 
-class ServerSideError extends Error {
+export default class ServerSideError extends Error {
   statusCode: number;
 
   constructor(message: string) {
@@ -8,5 +8,3 @@ class ServerSideError extends Error {
     this.statusCode = SERVER_SIDE_ERROR_CODE;
   }
 }
-
-export default ServerSideError;

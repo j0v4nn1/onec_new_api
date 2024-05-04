@@ -6,6 +6,7 @@ import receiptsRouter from './routes/receipts';
 import providersRouter from './routes/provider';
 import productsRouter from './routes/products';
 import brandRouter from './routes/brands';
+import usersRouter from './routes/users';
 
 const { PORT, PORT_DB, DB_NAME } = process.env;
 
@@ -17,6 +18,7 @@ app.use('/api', receiptsRouter);
 app.use('/api', providersRouter);
 app.use('/api', productsRouter);
 app.use('/api', brandRouter);
+app.use('/api', usersRouter);
 
 const start = async () => {
   try {

@@ -1,6 +1,6 @@
-import { NOT_FOUND_CODE } from '../constants';
+import { NOT_FOUND_CODE } from '../constants/errors';
 
-class NotFoundError extends Error {
+export default class NotFoundError extends Error {
   statusCode: number;
 
   constructor(message: string) {
@@ -8,5 +8,3 @@ class NotFoundError extends Error {
     this.statusCode = NOT_FOUND_CODE;
   }
 }
-
-export default NotFoundError;
